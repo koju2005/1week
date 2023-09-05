@@ -15,6 +15,7 @@ public class Move : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+       
     }
 
     private void Start()
