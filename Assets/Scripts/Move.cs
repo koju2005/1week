@@ -9,18 +9,31 @@ public class Move : MonoBehaviour
     private Vector2 Playerdir = Vector2.zero;
     Animator animator;
     SpriteRenderer sprite;
+    public float Speed;
+    public AudioSource audioSource;
     private void Awake()
     {
         controller = GetComponent<PlayerMoveController>();
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
        
     }
 
     private void Start()
     {
         controller.OnMoveEvent += GoMove;
+    }
+    public void Update()
+    {
+        if (animator.GetBool("IsMoving"))
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -37,6 +50,7 @@ public class Move : MonoBehaviour
       
         animator.SetFloat("x",Playerdir.x);
         animator.SetFloat("y", Playerdir.y);
+    
     }
     private void GoMove(Vector2 dir)
     {
@@ -46,6 +60,7 @@ public class Move : MonoBehaviour
     private void ApplyGoMove(Vector2 dir)
     {
         dir *= 5;
-        rigidbody.velocity = dir;
+        rigidbody.velocity = dir*Speed;
     }
+
 }
