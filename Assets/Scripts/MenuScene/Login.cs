@@ -10,14 +10,6 @@ public class Login : MonoBehaviour
     SoundManager soundManager;
     AudioSource m_AudioSource;
     public TMP_InputField inputname;
-    public void Awake()
-    {
-   
-    }
-    public void Start()
-    {
-
-    }
     public void OnClick()
     {
         SoundManager.instance.PlaySound();
