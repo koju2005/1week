@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour
             TMP_Text tmp = textTransform.GetComponent<TMP_Text>();
             tmp.text = name;
         }
+        
 
-   
+
         Instantiate(Player);
     }
 }

@@ -14,6 +14,6 @@ public class Login : MonoBehaviour
     {
         SoundManager.instance.PlaySound();
         PlayerPrefs.SetString("Name", inputname.text);
-       SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainScene");
     }
 }
